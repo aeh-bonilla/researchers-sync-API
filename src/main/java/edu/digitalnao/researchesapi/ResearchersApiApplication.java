@@ -1,13 +1,13 @@
-package edu.nao.researchsersyncapi;
+package edu.digitalnao.researchesapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ResearcherSyncApiApplication {
+public class ResearchersApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ResearcherSyncApiApplication.class, args);
+		SpringApplication.run(ResearchersApiApplication.class, args);
 	}
 
 }

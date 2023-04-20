@@ -1,0 +1,42 @@
+version: '3.1'
+networks:
+  app-tier:
+    driver: bridge
+services:
+  #  app:
+  #    build: .
+  #    ports:
+  #      - 9090:8080
+  #    networks:
+  #      - app-tier
+  #    links:
+  #      - "db:localhost"
+  #    depends_on:
+  #      - db
+  #      - adminer
+  db:
+    hostname: db
+    image: mysql:8.0.33
+    command: --default-authentication-plugin=mysql_native_password --bind-address=0.0.0.0 --explicit_defaults_for_timestamp
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    restart: always
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: ?XZ_Yomv@h7mS4tJ
+      MYSQL_USER: operator_usr
+      MYSQL_PASSWORD: kb*d6-Ypbac4tZH;
+      MYSQL_DATABASE: researchers_db
+      LC_ALL: C.UTF-8
+      LANG: C.UTF-8
+    ports:
+      - 3306:3306
+    networks:
+      - app-tier
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8989:8080
+    networks:
+      - app-tier
