@@ -1,8 +1,8 @@
 USE `researchers_db`;
 DROP TABLE IF EXISTS `researchers_db`.`researchers_catalog`;
 CREATE TABLE `researchers_db`.`researchers_catalog` (
-`ID` varchar(16) NOT NULL,
-`NAME` varchar(32) NOT NULL,
-`BIRTHDATE` date NULL
-PRIMARY KEY (`ID`)
+`id` varchar(16) NOT NULL,
+`name` varchar(32) NOT NULL,
+`birthdate` date NULL,
+PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

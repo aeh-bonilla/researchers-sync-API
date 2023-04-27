@@ -16,7 +16,7 @@ public class ResearcherDto {
     private String url;
     private String eid;
     private Integer totalResults;
-    private String affilName;
+    private String affiliationName;
     private String affiliationCity;
     private String affiliationCountry;
 

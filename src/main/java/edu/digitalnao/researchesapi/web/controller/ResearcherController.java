@@ -1,5 +1,7 @@
 package edu.digitalnao.researchesapi.web.controller;
 
+import java.util.List;
+import java.util.ArrayList;
 import edu.digitalnao.researchesapi.service.ResearcherService;
 import edu.digitalnao.researchesapi.web.model.ResearcherDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,18 @@ public class ResearcherController {
 
     @Autowired
     private ResearcherService researcherServiceImpl;
+
+    @GetMapping(path = "", produces = { "application/json" })
+    public ResponseEntity<ArrayList<ResearcherDto>> getResearcher() {
+
+        ArrayList<ResearcherDto> researcherList = new ArrayList<>();
+        researcherList = this.researcherServiceImpl.getResearcherDetailList();
+        if (!researcherList.isEmpty()) {
+            return new ResponseEntity<>(researcherList, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(researcherList, HttpStatus.NOT_FOUND);
+        }
+    }
 
     @GetMapping(path = "/{researcherId}", produces = { "application/json" })
     public ResponseEntity<ResearcherDto> getResearcher(@PathVariable("researcherId") String researcherId){
